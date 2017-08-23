@@ -78,6 +78,30 @@ test('every', function (t) {
     })
 })
 
+test('reduce', function (t) {
+    t.test('empty array', function (st) {
+        const result = ArrayInmutable(emptyArray)
+            .reduce((a, b) => a + b, 5)
+        st.equal(result, 5,
+            'must return initial value')
+        st.end()
+    })
+    t.test('non-empty array (sum)', function (st) {
+        const result = ArrayInmutable([5, 9, 7, 8])
+            .reduce((a, b) => a + b, 0)
+        st.equal(result, 29,
+            'must return the reduced value')
+        st.end()
+    })
+    t.test('non-empty array (mul)', function (st) {
+        const result = ArrayInmutable([5, 9, 7, 8])
+            .reduce((a, b) => a * b, 1)
+        st.equal(result, 2520,
+            'must return the reduced value')
+        st.end()
+    })
+})
+
 test.createStream()
     .pipe(tapSpec())
     .pipe(process.stdout)
