@@ -23,6 +23,10 @@ const b = a.push(5)
 
 a.every(e => e < 3) // true
 b.every(e => e < 3) // false
+
+a.reduce((x, y) => x * y, 1) // 2 (1 * 2)
+a.reduce((x, y) => x * y, 1) // 10 (1 * 2 * 5)
+
 ```
 
 ## Support
