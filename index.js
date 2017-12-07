@@ -33,6 +33,18 @@ Object.defineProperties(ArrayInmutable.prototype, {
             return true
         }
     },
+    some: {
+        value (p) {
+            const length = this.length
+            const array = this.array
+            for (let i = 0; i < length; ++i) {
+                if (p(array[i])) {
+                    return true
+                }
+            }
+            return false
+        }
+    },
     reduce: {
         value (f, acc) {
             const length = this.length

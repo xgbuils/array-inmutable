@@ -78,6 +78,30 @@ test('every', function (t) {
     })
 })
 
+test('some', function (t) {
+    t.test('empty array', function (st) {
+        const result = ArrayInmutable(emptyArray)
+            .some(() => true)
+        st.equal(result, false,
+            'must return false')
+        st.end()
+    })
+    t.test('non-empty array', function (st) {
+        const result = ArrayInmutable([5, 1, 7, 8])
+            .some(e => e < 3)
+        st.deepEqual(result, true,
+            'must return true if the predicate returns true for each element')
+        st.end()
+    })
+    t.test('non-empty array', function (st) {
+        const result = ArrayInmutable([5, 9, 7, 8])
+            .some(e => e < 3)
+        st.deepEqual(result, false,
+            'must return false if the predicate returns false for some element')
+        st.end()
+    })
+})
+
 test('reduce', function (t) {
     t.test('empty array', function (st) {
         const result = ArrayInmutable(emptyArray)
