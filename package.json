@@ -1,6 +1,6 @@
 {
   "name": "array-inmutable",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "wrapped array structure which provides inmutable high performance methods",
   "main": "index.js",
   "scripts": {
